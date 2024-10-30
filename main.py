@@ -1,28 +1,60 @@
 import streamlit as st
 
-#1. 자기소개
-#자
+menu = st.sidebar.selectbox("MENU", ["로그인", "회원가입"])
 
-st.write("TEST")
-st.header(":violet[제목]")
-st.subheader("1.공동교육과정")
-st.write("매천고등학교의 공동교육과정 입니다.")
-st.code("print('Hello, World!!!')", language='python')
-st.divider()
-st.markdown(":red[**공동**]교육과정 :blue[매천고등학교]")
+db_id = "test"
+db_pw = "123"
 
-button = st.button("버튼")
-if button:
-    st.write("버튼클릭!!!")
+if menu == "로그인":
+    st.title("🍭로그인")
+    id = st.text_input("아이디", placeholder="아이디를 입력하세요.")
+    pw = st.text_input("비밀번호",type="password")
+    login = st.button("로그인")
 
-btnmulti = st.button("곱하기")
-multia = st.number_input("1번 숫자를 입력하세요", step=1, key="multi_a")
-multib = st.number_input("2번 숫자를 입력하세요", step=1, key="multi_b")
-if btnmulti :
-    st.write(multia * multib)
+    if login:
+        if db_id == id and db_pw == pw:
+            st.success("로그인 성공")
+            st.balloons()
+        else:
+            st.error("로그인 실패")
+            st.snow()
+elif menu=="회원가입":
+    st.title("🥗회원가입")
+    st.video("https://youtu.be/fuln40NIeZk")
 
-#1과제
-#사칙연산하는 프로그램을 만들어보세요!
-#버튼 +, -, *, / 
-#두 수를 계산하는 프로그램을 만듭니다.
-#50분까지(쉬는시간 포함)
+
+# 과목 = st.selectbox("과목을 선택하세요",
+#                     ["확률과 통계",
+#                      "미분과 적분",
+#                      "기하와 벡터"])
+
+# st.subheader(f"당신이 선택한 과목은 {과목}입니다.")
+
+# 짜장면 = st.checkbox("짜장면(5000원)")
+# 짬뽕 = st.checkbox("짬뽕(7000원)")
+# 탕수육 = st.checkbox("탕수육(15000원)")
+# 가격 = 0
+# if 짜장면:
+#     가격+=5000
+# if 짬뽕:
+#     가격+=7000
+# if 탕수육:
+#     가격+=15000
+
+# st.subheader(f"가격은 {가격}입니다.")
+
+
+# check = st.checkbox("선택")
+# if check:
+#     st.write("선택하셨습니다.")
+
+# 버튼 = st.button("버튼")
+# if 버튼:
+#     st.write("버튼을 눌렀습니다.")
+
+# st.title("🍔Title")
+# st.header("Header")
+# st.subheader("Subheader")
+# st.markdown("우리 함께 **스트림릿**을 :red[배워]봅시다!!!")
+# st.write("우리 함께 **스트림릿**을 :red[배워]봅시다!!!")
+
